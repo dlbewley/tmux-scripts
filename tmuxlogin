@@ -103,10 +103,16 @@ open_windows() {
 	return 
     fi
 
+    # get the base-index value, in case it has been customized
+    BASE_INDEX=$(tmux show-option -vg base-index 2> /dev/null)
+    if [ $BASE_INDEX -lt 1 ]; then
+	BASE_INDEX=0
+    fi
+    
     # if this is a new session then there is no point in creating a new window
     if [ -n "$new_session" ]; then
         # this is a brand new session with only 1 window, so just rename it
-        tmux rename-window  -t "$SESSION:0" "$WINDOW"
+        tmux rename-window  -t "$SESSION:$BASE_INDEX" "$WINDOW"
     else
         # create new window in this pre-existing session
         tmux new-window    -t "$SESSION" -a -n "$WINDOW"
