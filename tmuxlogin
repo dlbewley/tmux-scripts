@@ -2,7 +2,25 @@
 ################################################################################
 # tmuxlogin - Open multiple tmux panes, each logged into a different server
 #-------------------------------------------------------------------------------
-# 20110302 dale bewley net
+# Copyright 2011-2014 Dale Bewley
+#
+#   This program is free software: you can redistribute it and/or modify
+#   it under the terms of the GNU General Public License as published by
+#   the Free Software Foundation, either version 3 of the License, or
+#   (at your option) any later version.
+#
+#   This program is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU General Public License for more details.
+#
+#   You should have received a copy of the GNU General Public License
+#   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Use me to get your tmux session restored after a reboot or reattach daily.
+# Just type tmuxgo every morning and hit ^bd at the end of the day. Login
+# remotely and do the same.
+#
 #
 # Run this within your current tmux session to open a new window, or run it in
 # the absence of a tmux session to create a new one. A new window will be
