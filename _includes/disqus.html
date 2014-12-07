@@ -1,0 +1,36 @@
+<script>
+// Disqus
+// disqus.shortname {{ disqus.shortname }}
+var disqus_shortname = 'dlbewleygithubio';
+if (!window.disqus_url) window.disqus_url = "{{ site.url }}{{ page.url }}";
+if (!window.disqus_title) window.disqus_title = document.title;
+(function(){try{
+// this hack takes care of formatting # comments
+var v = document.getElementsByClassName('dsq-comment-count');
+var loaded = false;
+var polle;
+for (var i=0;i<v.length;i++) {
+  var e = v.item(i);
+  if (e.firstChild.nodeValue === '-') {
+    polle = e.firstChild;
+    break;
+  }
+}
+function onload() {
+  for (var i=0;i<v.length;i++) {
+    var e = v.item(i);
+    if (e.firstChild.nodeValue !== '0 and 0') {
+      var m = e.firstChild.nodeValue.split(' ');
+      e.firstChild.nodeValue = String(parseInt(m[0]) + parseInt(m[2]));
+      e.style.display = 'inline';
+    }
+  }
+}
+if (polle) {
+  var timer = setInterval(function(){
+    if (polle.nodeValue !== '-') { clearInterval(timer); onload(); }
+  },100);
+}
+}catch(e){}})();
+</script>
+<script async src="http://disqus.com/forums/{{disqus.shortname}}/count.js"></script>
